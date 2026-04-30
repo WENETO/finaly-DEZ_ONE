@@ -1,0 +1,198 @@
+/* ===== АНИМИРОВАННЫЙ ФОН С ПАУТИНКОЙ ===== */
+.web-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.1;
+}
+
+.web-line {
+    position: absolute;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(12, 131, 70, 0.2) 50%, 
+        transparent 100%);
+    transform-origin: left center;
+}
+
+/* Основные паутинки */
+.web-1 { width: 80%; height: 1px; top: 10%; left: 10%; animation: moveWeb1 30s infinite linear; }
+.web-2 { width: 60%; height: 1px; top: 30%; left: 20%; animation: moveWeb2 25s infinite linear reverse; }
+.web-3 { width: 70%; height: 1px; top: 50%; left: 15%; animation: moveWeb3 35s infinite linear; }
+.web-4 { width: 50%; height: 1px; top: 70%; left: 25%; animation: moveWeb4 40s infinite linear reverse; }
+.web-5 { width: 90%; height: 1px; top: 20%; left: 5%; animation: moveWeb5 45s infinite linear; }
+
+/* Диагональные паутинки */
+.web-6 { width: 1px; height: 60%; top: 5%; left: 15%; animation: moveWeb6 30s infinite linear; transform: rotate(45deg); }
+.web-7 { width: 1px; height: 50%; top: 15%; left: 30%; animation: moveWeb7 35s infinite linear reverse; transform: rotate(-30deg); }
+.web-8 { width: 1px; height: 70%; top: 10%; left: 70%; animation: moveWeb8 40s infinite linear; transform: rotate(60deg); }
+.web-9 { width: 1px; height: 40%; top: 40%; left: 60%; animation: moveWeb9 25s infinite linear reverse; transform: rotate(-45deg); }
+.web-10 { width: 1px; height: 80%; top: 20%; left: 85%; animation: moveWeb10 50s infinite linear; transform: rotate(15deg); }
+
+/* Сетка паутинки */
+.web-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, rgba(12, 131, 70, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(12, 131, 70, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveGrid 100s infinite linear;
+}
+
+/* Паучки */
+.spider {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: crawl 60s infinite linear;
+}
+
+.spider:before, .spider:after {
+    content: '';
+    position: absolute;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.spider:before {
+    width: 20px;
+    height: 2px;
+    top: 4px;
+    left: -5px;
+}
+
+.spider:after {
+    width: 15px;
+    height: 2px;
+    top: 4px;
+    left: -2px;
+    transform: rotate(45deg);
+}
+
+.spider-1 { top: 15%; left: 10%; animation-delay: 0s; }
+.spider-2 { top: 30%; left: 70%; animation-delay: 10s; animation-duration: 40s; }
+.spider-3 { top: 60%; left: 40%; animation-delay: 20s; animation-duration: 70s; }
+.spider-4 { top: 80%; left: 20%; animation-delay: 30s; animation-duration: 50s; }
+.spider-5 { top: 40%; left: 90%; animation-delay: 40s; animation-duration: 60s; }
+
+/* Капли на паутинке */
+.web-drop {
+    position: absolute;
+    width: 3px;
+    height: 10px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 152, 0, 0.3), transparent);
+    border-radius: 50%;
+    animation: dropFall 10s infinite linear;
+}
+
+.drop-1 { top: 5%; left: 15%; animation-delay: 0s; }
+.drop-2 { top: 20%; left: 40%; animation-delay: 2s; }
+.drop-3 { top: 35%; left: 65%; animation-delay: 4s; }
+.drop-4 { top: 50%; left: 25%; animation-delay: 6s; }
+.drop-5 { top: 65%; left: 55%; animation-delay: 8s; }
+
+/* Анимации */
+@keyframes moveWeb1 {
+    0%, 100% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(100px) scale(1.1); }
+}
+
+@keyframes moveWeb2 {
+    0%, 100% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(-50px) scale(0.9); }
+}
+
+@keyframes moveWeb3 {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(50px) scale(1.05); }
+}
+
+@keyframes moveWeb4 {
+    0%, 100% { transform: translateX(0) translateY(0) scale(1); }
+    33% { transform: translateX(30px) translateY(20px) scale(1.1); }
+    66% { transform: translateX(-20px) translateY(-10px) scale(0.95); }
+}
+
+@keyframes moveWeb5 {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+}
+
+@keyframes moveWeb6 {
+    0% { transform: rotate(45deg) translateY(0); }
+    100% { transform: rotate(45deg) translateY(100px); }
+}
+
+@keyframes moveWeb7 {
+    0% { transform: rotate(-30deg) translateX(0); }
+    100% { transform: rotate(-30deg) translateX(100px); }
+}
+
+@keyframes moveWeb8 {
+    0% { transform: rotate(60deg) translateY(0); }
+    100% { transform: rotate(60deg) translateY(-100px); }
+}
+
+@keyframes moveWeb9 {
+    0% { transform: rotate(-45deg) translateX(0); }
+    100% { transform: rotate(-45deg) translateX(-100px); }
+}
+
+@keyframes moveWeb10 {
+    0% { transform: rotate(15deg) translateY(0); }
+    100% { transform: rotate(15deg) translateY(100px); }
+}
+
+@keyframes moveGrid {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(50px) translateY(50px); }
+}
+
+@keyframes crawl {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(100px, 50px); }
+    50% { transform: translate(50px, 100px); }
+    75% { transform: translate(-50px, 50px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes dropFall {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .web-background {
+        opacity: 0.05;
+    }
+    
+    .web-line {
+        display: none;
+    }
+    
+    .web-grid {
+        background-size: 30px 30px;
+    }
+    
+    .spider {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .web-background {
+        display: none;
+    }
+}

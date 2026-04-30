@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108186352', 'ym');
+
+    ym(108186352, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108186352" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: ; connect-src 'self' https://api.jsonbin.io https://mc.yandex.ru wss://mc.yandex.ru https://*.workers.dev; frame-src https://mc.yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги и цены в Томске | DEZ-ONE</title>
+    <meta name="description" content="Подробные цены на дезинсекцию, дератизацию, дезинфекцию в Томске. Прозрачное ценообразование. Гарантия лучшей цены.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="css/style.css?v=5.0">
+    <link rel="stylesheet" href="css/responsive.css?v=5.0">
+    <link rel="stylesheet" href="css/animations.css?v=5.0">
+    <link rel="stylesheet" href="css/web-background.css?v=5.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Специфичные стили для страницы услуг */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/services-page-bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .page-header-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .page-header-slide.active {
+            opacity: 1;
+        }
+
+        .page-header-slide:nth-child(1) { background-image: url('images/services-page-bg1.jpg'); }
+        .page-header-slide:nth-child(2) { background-image: url('images/services-page-bg2.jpg'); }
+        .page-header-slide:nth-child(3) { background-image: url('images/services-page-bg3.jpg'); }
+
+        .page-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(12, 131, 70, 0.3) 0%, rgba(255, 152, 0, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            color: var(--text-light);
+        }
+
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .pricing-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .pricing-slide.active {
+            opacity: 0.1;
+        }
+
+        .pricing-slide:nth-child(1) { background-image: url('images/services-page-bg1.jpg'); }
+        .pricing-slide:nth-child(2) { background-image: url('images/services-page-bg2.jpg'); }
+        .pricing-slide:nth-child(3) { background-image: url('images/services-page-bg3.jpg'); }
+
+        .pricing-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pricing-card {
+            background-color: var(--light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(12, 131, 70, 0.1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:before {
+            content: 'ПОПУЛЯРНО';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-dark));
+            color: var(--text-dark);
+            padding: 5px 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card__header {
+            padding: 40px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card__header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .pricing-card__header h3 {
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card__price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 10px 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+        }
+
+        .pricing-card__period {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+        }
+
+        .pricing-card__body {
+            padding: 30px;
+            position: relative;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            color: #ffffff !important;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing-details {
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFFDE7 100%);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .pricing-details h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .pricing-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pricing-details li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dark);
+        }
+
+        .pricing-details li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-details li span:last-child {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .additional-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .additional-service-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(12, 131, 70, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .additional-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .additional-service-card .pricing-card__header {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+        }
+
+        .additional-service-card .pricing-card__header h3 {
+            color: var(--text-light);
+        }
+
+        .additional-service-card .pricing-card__body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .additional-service-card .pricing-features {
+            flex: 1;
+        }
+
+        .additional-service-card .btn {
+            margin-top: 20px;
+        }
+
+        .additional-services {
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .additional-services h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .additional-services h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFFDE7 100%);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(12, 131, 70, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .service-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .service-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-top: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .guarantee {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 255, 255, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 90%, rgba(255, 152, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 10%, rgba(12, 131, 70, 0.1) 0%, transparent 50%);
+        }
+
+        .guarantee h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guarantee-item {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(12, 131, 70, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .guarantee-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(12, 131, 70, 0.03) 100%);
+        }
+
+        .guarantee-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .guarantee-item h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guarantee-item p {
+            position: relative;
+            z-index: 1;
+            color: var(--gray-dark);
+        }
+
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-content p {
+            max-width: 600px;
+            margin: 20px auto 30px;
+            opacity: 0.9;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .services-page {
+            position: relative;
+        }
+
+        .memo-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .memo-button .btn {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: var(--text-dark);
+        }
+
+        .consent-link {
+            color: var(--primary);
+            text-decoration: underline;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: inherit;
+            font-family: inherit;
+        }
+        .consent-link:hover {
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body class="services-page">
+
+    <!-- ПРИНУДИТЕЛЬНЫЕ СТИЛИ ДЛЯ МОДАЛЬНЫХ ОКОН -->
+    <style>
+        #orderModal .modal__content,
+        #consultModal .modal__content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+        }
+        
+        #orderModal *:not(button):not(.btn),
+        #consultModal *:not(button):not(.btn) {
+            color: #ffffff !important;
+        }
+        
+        #orderModal input,
+        #consultModal input,
+        #orderModal textarea,
+        #consultModal textarea {
+            background-color: #333333 !important;
+            color: #ffffff !important;
+            border-color: #555555 !important;
+        }
+        
+        #orderModal input::placeholder,
+        #consultModal input::placeholder,
+        #orderModal textarea::placeholder,
+        #consultModal textarea::placeholder {
+            color: #aaaaaa !important;
+        }
+        
+        #orderModal .checkbox-text,
+        #consultModal .checkbox-text {
+            color: #ffffff !important;
+        }
+    </style>
+
+    <!-- Анимированный фон с паутинкой -->
+    <div class="web-background">
+        <div class="web-line web-1"></div>
+        <div class="web-line web-2"></div>
+        <div class="web-line web-3"></div>
+        <div class="web-line web-4"></div>
+        <div class="web-line web-5"></div>
+        <div class="web-line web-6"></div>
+        <div class="web-line web-7"></div>
+        <div class="web-line web-8"></div>
+        <div class="web-line web-9"></div>
+        <div class="web-line web-10"></div>
+        <div class="web-grid"></div>
+        <div class="spider spider-1"></div>
+        <div class="spider spider-2"></div>
+        <div class="spider spider-3"></div>
+        <div class="spider spider-4"></div>
+        <div class="spider spider-5"></div>
+        <div class="web-drop drop-1"></div>
+        <div class="web-drop drop-2"></div>
+        <div class="web-drop drop-3"></div>
+        <div class="web-drop drop-4"></div>
+        <div class="web-drop drop-5"></div>
+    </div>
+
+    <!-- Анимированный фон сайта -->
+    <div class="site-background">
+        <div class="bg-particle p1"></div>
+        <div class="bg-particle p2"></div>
+        <div class="bg-particle p3"></div>
+        <div class="bg-particle p4"></div>
+        <div class="bg-particle p5"></div>
+        <div class="bg-particle p6"></div>
+        <div class="bg-particle p7"></div>
+        <div class="bg-particle p8"></div>
+        <div class="bg-particle p9"></div>
+        <div class="bg-particle p10"></div>
+        <div class="bg-shine"></div>
+    </div>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <span class="logo__primary">DEZ</span><span class="logo__secondary">-ONE</span>
+            </a>
+            <button class="nav__toggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html" class="active">Услуги и цены</a></li>
+                    <li><a href="organizations.html">Организациям</a></li>
+                    <li><a href="client-memo.html">Памятка клиенту</a></li>
+                    <li><a href="calculator.html">Калькулятор</a></li>
+                    <li><a href="index.html#process">Как работаем</a></li>
+                    <li><a href="index.html#reviews">Отзывы</a></li>
+                    <li><a href="blog.html">Статьи</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header__contacts">
+                <a href="tel:+79138600660" class="phone" data-dez-phone="phone">8-913-860-06-60</a>
+                <p class="work-hours" data-dez-work-hours="work-hours">Круглосуточно</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="services-page">
+        <!-- ШАПКА СТРАНИЦЫ -->
+        <section class="page-header">
+            <div class="page-header-slideshow">
+                <div class="page-header-slide active"></div>
+                <div class="page-header-slide"></div>
+                <div class="page-header-slide"></div>
+            </div>
+            <div class="container">
+                <h1 class="animate-on-scroll" data-animation="fadeInUp">Услуги и цены в Томске</h1>
+                <p class="page-subtitle animate-on-scroll" data-animation="fadeInUp" data-delay="200">Прозрачное ценообразование. Никаких скрытых платежей. Гарантия лучшей цены.</p>
+            </div>
+        </section>
+
+        <!-- ОСНОВНЫЕ УСЛУГИ (3 КАРТОЧКИ) -->
+        <section class="pricing">
+            <div class="pricing-slideshow">
+                <div class="pricing-slide active"></div>
+                <div class="pricing-slide"></div>
+                <div class="pricing-slide"></div>
+            </div>
+            <div class="container">
+                <div class="pricing-content">
+                    <div class="pricing-table">
+                        <div class="pricing-card featured animate-on-scroll" data-animation="zoomIn">
+                            <div class="pricing-card__header">
+                                <h3>Дезинсекция</h3>
+                                <div class="pricing-card__price">от 1 800 ₽</div>
+                                <p class="pricing-card__period">за обработку</p>
+                            </div>
+                            <div class="pricing-card__body">
+                                <ul class="pricing-features">
+                                    <li style="color: #ffffff !important;">Тараканы, клопы, муравьи, блохи, осы, шершни, клещи</li>
+                                    <li style="color: #ffffff !important;">Холодный туман (микрокапсулирование)</li>
+                                    <li style="color: #ffffff !important;">Горячий туман (по необходимости)</li>
+                                    <li style="color: #ffffff !important;">Барьерная защита</li>
+                                    <li style="color: #ffffff !important;">Усиленная защита</li>
+                                    <li style="color: #ffffff !important;">Гарантия 1 год</li>
+                                </ul>
+                                <div class="pricing-details">
+                                    <h4>Подробные цены:</h4>
+                                    <ul>
+                                        <li><span>1-комнатная квартира:</span> <span>1 800 - 2 500 ₽</span></li>
+                                        <li><span>2-комнатная квартира:</span> <span>2 200 - 3 000 ₽</span></li>
+                                        <li><span>3-комнатная квартира:</span> <span>2 800 - 3 800 ₽</span></li>
+                                        <li><span>Частный дом:</span> <span>от 3 500 ₽</span></li>
+                                        <li><span>Офис:</span> <span>от 60 ₽/м²</span></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn--primary btn--block" data-service="Дезинсекция" data-modal="order">Заказать</button>
+                            </div>
+                        </div>
+
+                        <div class="pricing-card animate-on-scroll" data-animation="zoomIn" data-delay="100">
+                            <div class="pricing-card__header">
+                                <h3>Дератизация</h3>
+                                <div class="pricing-card__price">от 2 500 ₽</div>
+                                <p class="pricing-card__period">за обработку</p>
+                            </div>
+                            <div class="pricing-card__body">
+                                <ul class="pricing-features">
+                                    <li style="color: #ffffff !important;">Крысы, мыши, полевки</li>
+                                    <li style="color: #ffffff !important;">Безопасные для людей и животных методы</li>
+                                    <li style="color: #ffffff !important;">Механические и электронные ловушки</li>
+                                    <li style="color: #ffffff !important;">Ультразвуковые отпугиватели</li>
+                                    <li style="color: #ffffff !important;">Гарантия 1 год</li>
+                                </ul>
+                                <div class="pricing-details">
+                                    <h4>Подробные цены:</h4>
+                                    <ul>
+                                        <li><span>Квартира:</span> <span>2 500 - 4 000 ₽</span></li>
+                                        <li><span>Частный дом:</span> <span>3 500 - 6 000 ₽</span></li>
+                                        <li><span>Подвал/чердак:</span> <span>от 3 000 ₽</span></li>
+                                        <li><span>Участок до 10 соток:</span> <span>от 4 000 ₽</span></li>
+                                        <li><span>Склад:</span> <span>от 80 ₽/м²</span></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn--outline btn--block" data-service="Дератизация" data-modal="order">Заказать</button>
+                            </div>
+                        </div>
+
+                        <div class="pricing-card animate-on-scroll" data-animation="zoomIn" data-delay="200">
+                            <div class="pricing-card__header">
+                                <h3>Дезинфекция</h3>
+                                <div class="pricing-card__price">от 2 200 ₽</div>
+                                <p class="pricing-card__period">за обработку</p>
+                            </div>
+                            <div class="pricing-card__body">
+                                <ul class="pricing-features">
+                                    <li style="color: #ffffff !important;">Вирусы, бактерии, плесень, грибок</li>
+                                    <li style="color: #ffffff !important;">Профессиональные препараты</li>
+                                    <li style="color: #ffffff !important;">Уничтожение запахов</li>
+                                    <li style="color: #ffffff !important;">Гипоаллергенные и сертифицированные препараты</li>
+                                </ul>
+                                <div class="pricing-details">
+                                    <h4>Подробные цены:</h4>
+                                    <ul>
+                                        <li><span>Квартира:</span> <span>2 200 - 3 500 ₽</span></li>
+                                        <li><span>Офис до 50 м²:</span> <span>3 000 - 4 500 ₽</span></li>
+                                        <li><span>Машина:</span> <span>от 2 500 ₽</span></li>
+                                        <li><span>Мебель:</span> <span>от 1 500 ₽</span></li>
+                                        <li><span>Комплексная обработка:</span> <span>от 100 ₽/м²</span></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn--outline btn--block" data-service="Дезинфекция" data-modal="order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Дополнительные услуги -->
+                    <div class="additional-services-grid">
+                        <div class="additional-service-card animate-on-scroll" data-animation="zoomIn" data-delay="300">
+                            <div class="pricing-card__header">
+                                <h3>Акарицидная обработка</h3>
+                                <div class="pricing-card__price">500 ₽/сотка</div>
+                                <p class="pricing-card__period">за сезон</p>
+                            </div>
+                            <div class="pricing-card__body">
+                                <ul class="pricing-features">
+                                    <li style="color: #ffffff !important;">Уничтожение клещей на участке</li>
+                                    <li style="color: #ffffff !important;">Защита от энцефалитных клещей</li>
+                                    <li style="color: #ffffff !important;">Борьба с пылевыми клещами</li>
+                                    <li style="color: #ffffff !important;">Безопасные сертифицированные препараты</li>
+                                    <li style="color: #ffffff !important;">Гарантия на весь сезон</li>
+                                    <li style="color: #ffffff !important;">Обработка от 6 соток</li>
+                                </ul>
+                                <div class="pricing-details">
+                                    <h4>Подробные цены:</h4>
+                                    <ul>
+                                        <li><span>Участок до 6 соток:</span> <span>500 ₽/сотка</span></li>
+                                        <li><span>Участок 6-12 соток:</span> <span>450 ₽/сотка</span></li>
+                                        <li><span>Участок от 12 соток:</span> <span>400 ₽/сотка</span></li>
+                                        <li><span>Повторная обработка:</span> <span>-30%</span></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn--primary btn--block" data-service="Акарицидная обработка" data-modal="order">Заказать</button>
+                            </div>
+                        </div>
+                        <div class="additional-service-card animate-on-scroll" data-animation="zoomIn" data-delay="400">
+                            <div class="pricing-card__header">
+                                <h3>Демиркуризация</h3>
+                                <div class="pricing-card__price">от 4 000 ₽</div>
+                                <p class="pricing-card__period">за выезд</p>
+                            </div>
+                            <div class="pricing-card__body">
+                                <ul class="pricing-features">
+                                    <li style="color: #ffffff !important;">Очистка помещений от ртути</li>
+                                    <li style="color: #ffffff !important;">Утилизация ртутных соединений</li>
+                                    <li style="color: #ffffff !important;">Демеркуризационный комплекс</li>
+                                    <li style="color: #ffffff !important;">Контрольный замер воздуха</li>
+                                    <li style="color: #ffffff !important;">Срочный выезд 24/7</li>
+                                    <li style="color: #ffffff !important;">Заключение лаборатории</li>
+                                </ul>
+                                <div class="pricing-details">
+                                    <h4>Подробные цены:</h4>
+                                    <ul>
+                                        <li><span>Квартира/дом:</span> <span>4 000 - 7 000 ₽</span></li>
+                                        <li><span>Офис/предприятие:</span> <span>от 8 000 ₽</span></li>
+                                        <li><span>Транспортное средство:</span> <span>от 5 000 ₽</span></li>
+                                        <li><span>Утилизация отходов:</span> <span>включена</span></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn--primary btn--block" data-service="Демиркуризация" data-modal="order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="additional-services animate-on-scroll" data-animation="fadeInUp">
+                        <h2>Дополнительные услуги в Томске</h2>
+                        <div class="services-grid">
+                            <div class="service-item">
+                                <h4>Уничтожение запахов</h4>
+                                <p>Удаление стойких запахов после пожара, животных, плесени</p>
+                                <div class="service-price">от 3 000 ₽</div>
+                                <button class="btn btn--primary" style="margin-top: 15px;" data-service="Уничтожение запахов" data-modal="order">Заказать</button>
+                            </div>
+                            <div class="service-item">
+                                <h4>Клининговые услуги</h4>
+                                <p>Чистка и уборка помещений после ремонта и обработки</p>
+                                <div class="service-price">от 5 000 ₽</div>
+                                <button class="btn btn--primary" style="margin-top: 15px;" data-service="Клининговые услуги" data-modal="order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="memo-button animate-on-scroll" data-animation="fadeInUp">
+                        <a href="client-memo.html" class="btn btn--secondary btn--large">
+                            <i class="fas fa-file-alt"></i> Ознакомиться с памяткой клиенту
+                        </a>
+                        <p style="margin-top: 10px; color: var(--gray-dark);">*Оформление заявки возможно только после ознакомления с памяткой клиенту</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ГАРАНТИИ -->
+        <section class="guarantee">
+            <div class="container">
+                <h2 class="text-center animate-on-scroll" data-animation="fadeInUp">Наши гарантии</h2>
+                <div class="guarantee-grid">
+                    <div class="guarantee-item animate-on-scroll" data-animation="zoomIn">
+                        <div class="guarantee-icon">💰</div>
+                        <h3>Фиксированная цена</h3>
+                        <p>Цена, озвученная при расчете, не изменится. Никаких доплат после обработки.</p>
+                    </div>
+                    <div class="guarantee-item animate-on-scroll" data-animation="zoomIn" data-delay="100">
+                        <div class="guarantee-icon">📄</div>
+                        <h3>Официальный договор</h3>
+                        <p>Все работы проводятся по договору с указанием гарантийных обязательств.</p>
+                    </div>
+                    <div class="guarantee-item animate-on-scroll" data-animation="zoomIn" data-delay="200">
+                        <div class="guarantee-icon">🔄</div>
+                        <h3>Повторная обработка</h3>
+                        <p>Если проблема не решена — бесплатная повторная обработка в течение гарантийного срока.</p>
+                    </div>
+                    <div class="guarantee-item animate-on-scroll" data-animation="zoomIn" data-delay="300">
+                        <div class="guarantee-icon">👨‍🔬</div>
+                        <h3>Профессионализм</h3>
+                        <p>Все специалисты имеют сертификаты и проходят регулярное обучение.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA СЕКЦИЯ -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content animate-on-scroll" data-animation="zoomIn">
+                    <h2>Не нашли нужную услугу?</h2>
+                    <p>Опишите вашу проблему, и мы подберем оптимальное решение</p>
+                    <button class="btn btn--secondary btn--large" data-modal="consult">Получить консультацию</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно консультации -->
+    <div class="modal" id="consultModal">
+        <div class="modal__content" style="max-width: 600px; width: 90%; padding: 40px;">
+            <button class="modal__close" aria-label="Закрыть">&times;</button>
+            <h3 class="modal__title" style="font-size: 2rem; margin-bottom: 10px; color: #0c8346;">Бесплатная консультация</h3>
+            <p class="modal__text" style="font-size: 1.1rem; margin-bottom: 30px; color: #5a6268;">Оставьте контакты, и наш специалист перезвонит вам в течение 15 минут</p>
+            <form id="consultForm" class="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="form-group" style="width: 100%;"><label for="consultName" style="font-weight: 600; margin-bottom: 8px; display: block; color: #333;">Ваше имя <span style="color: #ff0000;">*</span></label><input type="text" id="consultName" name="name" placeholder="Введите ваше имя" required style="width: 100%; padding: 15px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; box-sizing: border-box;"></div>
+                <div class="form-group" style="width: 100%;"><label for="consultPhone" style="font-weight: 600; margin-bottom: 8px; display: block; color: #333;">Номер телефона <span style="color: #ff0000;">*</span></label><input type="tel" id="consultPhone" name="phone" placeholder="+7 (___) ___-__-__" required style="width: 100%; padding: 15px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; box-sizing: border-box;"></div>
+                <div class="form-group" style="width: 100%;"><label for="consultMessage" style="font-weight: 600; margin-bottom: 8px; display: block; color: #333;">Сообщение</label><textarea id="consultMessage" name="message" placeholder="Опишите вашу проблему (необязательно)" rows="3" style="width: 100%; padding: 15px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; font-family: inherit; resize: vertical; box-sizing: border-box;"></textarea></div>
+                <button type="submit" class="btn btn--primary btn--block" style="padding: 16px; font-size: 1.2rem; font-weight: 700; background: #0c8346; color: white; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; margin-top: 10px;"><i class="fas fa-phone-alt"></i> Жду звонка</button>
+                <p class="form-note" style="font-size: 0.9rem; color: #5a6268; text-align: center; margin-top: 15px;">Нажимая кнопку, вы соглашаетесь с <button type="button" class="consent-link" data-modal="consent" style="background: none; border: none; color: #0c8346; text-decoration: underline; cursor: pointer; padding: 0; font-size: 0.9rem;">обработкой персональных данных</button></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно заказа -->
+    <div class="modal" id="orderModal">
+        <div class="modal__content" style="max-width: 600px; width: 90%; padding: 40px;">
+            <button class="modal__close" aria-label="Закрыть">&times;</button>
+            <h3 class="modal__title" style="font-size: 2rem; margin-bottom: 10px; color: #0c8346;">Вызов специалиста</h3>
+            <p class="modal__text" style="font-size: 1.1rem; margin-bottom: 30px; color: #5a6268;">Мы перезвоним для уточнения деталей и согласования времени выезда</p>
+            <form id="orderForm" class="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="form-group" style="width: 100%;"><label for="orderName" style="font-weight: 600; margin-bottom: 8px; display: block; color: #333;">Ваше имя <span style="color: #ff0000;">*</span></label><input type="text" id="orderName" name="name" placeholder="Введите ваше имя" required style="width: 100%; padding: 15px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; box-sizing: border-box;"></div>
+                <div class="form-group" style="width: 100%;"><label for="orderPhone" style="font-weight: 600; margin-bottom: 8px; display: block; color: #333;">Номер телефона <span style="color: #ff0000;">*</span></label><input type="tel" id="orderPhone" name="phone" placeholder="+7 (___) ___-__-__" required style="width: 100%; padding: 15px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; box-sizing: border-box;"></div>
+                <div class="form-group" style="width: 100%;"><label for="serviceInput" style="font-weight: 600; margin-bottom: 8px; display: block; color: #333;">Опишите ваш запрос</label><textarea name="service" id="serviceInput" placeholder="Опишите, какая услуга вам нужна, площадь помещения и т.д." rows="3" required style="width: 100%; padding: 15px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; font-family: inherit; resize: vertical; box-sizing: border-box;"></textarea></div>
+                <div class="form-group" style="width: 100%;"><label for="orderAddress" style="font-weight: 600; margin-bottom: 8px; display: block; color: #333;">Адрес объекта <span style="color: #ff0000;">*</span></label><textarea id="orderAddress" name="address" placeholder="Введите адрес: город, улица, дом, квартира" required rows="3" style="width: 100%; padding: 15px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: all 0.3s; font-family: inherit; resize: vertical; box-sizing: border-box;"></textarea></div>
+                <div style="margin: 15px 0; padding: 20px; background-color: #0c8346; border-radius: 8px;"><label style="display: flex; align-items: flex-start; gap: 15px; cursor: pointer; color: #ffffff;"><input type="checkbox" name="clientMemoAgreement" id="clientMemoAgreement" required style="width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: #ff9800; flex-shrink: 0;"><span style="color: #ffffff; font-size: 1rem; line-height: 1.4; flex: 1;">Я ознакомлен(а) и согласен(на) с <a href="client-memo.html" target="_blank" style="color: #ff9800; text-decoration: underline; font-weight: 600;">Памяткой клиенту</a> и обязуюсь соблюдать все правила поведения после обработки</span></label></div>
+                <button type="submit" class="btn btn--primary btn--block" id="orderSubmitBtn" disabled style="padding: 16px; font-size: 1.2rem; font-weight: 700; background: #0c8346; color: white; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; margin-top: 10px;"><i class="fas fa-phone-alt"></i> Вызвать специалиста</button>
+                <p class="form-note" style="font-size: 0.9rem; color: #5a6268; text-align: center; margin-top: 15px;">Нажимая кнопку, вы соглашаетесь с <button type="button" class="consent-link" data-modal="consent" style="background: none; border: none; color: #0c8346; text-decoration: underline; cursor: pointer; padding: 0; font-size: 0.9rem;">обработкой персональных данных</button></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ФУТЕР с полной информацией об ИП -->
+    <footer id="contacts" class="footer" style="background: linear-gradient(135deg, #0a0a0a 0%, #121212 100%); padding: 60px 0 30px; color: #ffffff;">
+        <div class="container">
+            <div class="footer__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div class="footer__col">
+                    <a href="index.html" class="footer-logo" style="font-size: 1.8rem; font-weight: 800; color: #ffffff; text-decoration: none; display: inline-block; margin-bottom: 20px;">
+                        <span style="color: #0c8346;">DEZ</span><span style="color: #ff9800;">-ONE</span>
+                    </a>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 25px;">Профессиональная дезинсекция, дератизация и дезинфекция в Томске. Работаем с 2016 года.</p>
+                    <div class="social-links" style="display: flex; gap: 15px;" data-dez-social-container>
+                        <a href="https://max.ru/profile/79138572271" target="_blank" data-dez-social="max" style="color: #ffffff; font-size: 1.2rem;" aria-label="MAX"><i class="fas fa-star"></i></a>
+                        <a href="https://t.me/dezon_pro" target="_blank" data-dez-social="telegram" style="color: #ffffff; font-size: 1.2rem;"><i class="fab fa-telegram"></i></a>
+                        <a href="#" data-dez-social="whatsapp" style="color: #ffffff; font-size: 1.2rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" data-dez-social="vk" style="color: #ffffff; font-size: 1.2rem;" target="_blank"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer__col">
+                    <h4 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 25px; position: relative; padding-bottom: 10px;">Контакты</h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <a href="tel:+79138600660" style="color: #ffffff; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px;" data-dez-phone="phone">
+                            <i class="fas fa-phone" style="color: #ff9800;"></i> 8-913-860-06-60
+                        </a>
+                        <p style="color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 10px; margin: 0;" data-dez-work-hours="work-hours">
+                            <i class="fas fa-clock" style="color: #ff9800;"></i> Круглосуточно
+                        </p>
+                        <a href="mailto:muravskiy.s.a@yandex.ru" style="color: #ffffff; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px;" data-dez-email="email">
+                            <i class="fas fa-envelope" style="color: #ff9800;"></i> muravskiy.s.a@yandex.ru
+                        </a>
+                        <p style="color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 10px; margin: 0;" data-dez-address="address">
+                            <i class="fas fa-map-marker-alt" style="color: #ff9800;"></i> г. Томск, ул. Алтайская, д. 10
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer__col">
+                    <h4 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 25px; position: relative; padding-bottom: 10px;">Остались вопросы?</h4>
+                    <form id="footerForm" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" name="name" placeholder="Имя" required style="padding: 12px 15px; border-radius: 5px; border: none; background: rgba(255,255,255,0.1); color: #ffffff;">
+                        <input type="tel" name="phone" placeholder="Телефон" required style="padding: 12px 15px; border-radius: 5px; border: none; background: rgba(255,255,255,0.1); color: #ffffff;">
+                        <button type="submit" class="btn btn--primary" style="background: #ff9800; color: #000000; border: none; padding: 12px; font-weight: 600; cursor: pointer; border-radius: 5px;">
+                            <i class="fas fa-phone-alt"></i> Перезвоните мне
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center;">
+                <p style="color: #ffffff; margin: 0 0 10px 0;">&copy; 2026 DEZ-ONE. Все права защищены.</p>
+                <p style="color: #ffffff; margin: 0 0 5px 0;">Индивидуальный предприниматель Шпигрев В.О.</p>
+                <p style="color: #ffffff; margin: 0 0 5px 0;">ОГРНИП: 325700000003162</p>
+                <p style="color: #ffffff; margin: 0 0 5px 0;">Лицензия: 70.ТС.08.003.Л.000011.03.25 (ЕРУЛ № Л064-00111-70/01987002)</p>
+                <p style="color: #ffffff; margin: 0;">Email: muravskiy.s.a@yandex.ru</p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 15px;">
+                    <a href="#" class="footer__link" id="privacyPolicyLink" style="color: #ffffff; text-decoration: none;">Политика конфиденциальности</a>
+                    <a href="#" class="footer__link" id="clientAgreementLink" style="color: #ffffff; text-decoration: none;">Клиентское соглашение</a>
+                    <a href="#" class="footer__link" id="userAgreementLink" style="color: #ffffff; text-decoration: none;">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Виджет обратного звонка -->
+    <button class="callback-widget" aria-label="Заказать обратный звонок" data-modal="consult"><span class="callback-widget__icon"><i class="fas fa-phone-alt"></i></span><span class="callback-widget__text">Заказать звонок</span></button>
+
+    <!-- Кнопка наверх -->
+    <button class="scroll-top" aria-label="Наверх"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Модальное окно Политики конфиденциальности -->
+    <div class="modal" id="privacyPolicyModal">
+        <div class="modal__content" style="max-width: 800px; max-height: 80vh; overflow-y: auto; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: #ffffff !important;">
+            <button class="modal__close" aria-label="Закрыть" style="color: #ffffff;">&times;</button>
+            <h3 class="modal__title" style="color: #ff9800; margin-bottom: 25px;" data-dez-agreement-title="privacy">Политика конфиденциальности</h3>
+            <div style="text-align: left; color: #ffffff !important;" data-dez-agreement-content="privacy">
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">1. Общие положения</h4>
+                <p style="color: #ffffff !important;">1.1. Настоящая Политика конфиденциальности (далее — Политика) является официальным документом Индивидуального предпринимателя Шпигрева В.О. (ОГРНИП 325700000003162), действующего на основании законодательства РФ, и определяет порядок обработки и защиты информации о физических и юридических лицах (далее — Пользователи), использующих Сайт https://dez-one.ru (далее — Сайт).</p>
+                <p style="color: #ffffff !important;">1.2. Целью Политики является обеспечение защиты прав и свобод Пользователя при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.</p>
+                <p style="color: #ffffff !important;">1.3. Использование Сайта означает безоговорочное согласие Пользователя с настоящей Политикой. В случае несогласия с условиями Политики Пользователь обязан прекратить использование Сайта.</p>
+                <p style="color: #ffffff !important;">1.4. Действующая редакция Политики находится на Сайте в открытом доступе. Оператор имеет право вносить изменения в Политику. Новая редакция Политики вступает в силу с момента ее размещения на Сайте, если иное не предусмотрено новой редакцией.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">2. Персональная информация пользователей</h4>
+                <p style="color: #ffffff !important;">2.1. Под персональной информацией в настоящей Политике понимается:</p>
+                <ul style="list-style-type: disc; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Информация, которую Пользователь предоставляет о себе самостоятельно при заполнении форм обратной связи, регистрации, оформлении заказа на Сайте, включая: фамилию, имя, отчество; номер контактного телефона; адрес электронной почты; адрес местонахождения объекта; иные данные, предоставляемые Пользователем.</li><li style="color: #ffffff !important;">Данные, которые автоматически передаются Сайтом в процессе его использования с помощью установленного на устройстве Пользователя программного обеспечения, в том числе IP-адрес, информация из cookie, данные об используемом браузере, время доступа, реферер (адрес предыдущей страницы).</li></ul>
+                <p style="color: #ffffff !important;">2.2. Оператор не обрабатывает специальные категории персональных данных, касающиеся расовой, национальной принадлежности, политических взглядов, религиозных или философских убеждений, состояния здоровья, интимной жизни.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">3. Цели сбора и обработки персональной информации</h4>
+                <p style="color: #ffffff !important;">3.1. Оператор осуществляет сбор и обработку только той персональной информации, которая необходима для исполнения договоров и соглашений с Пользователем, а также для соблюдения требований законодательства РФ.</p>
+                <p style="color: #ffffff !important;">3.2. Персональная информация Пользователя используется в следующих целях:</p>
+                <ul style="list-style-type: disc; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Идентификация Пользователя в рамках договоров оказания услуг;</li><li style="color: #ffffff !important;">Связь с Пользователем, включая направление уведомлений, запросов и информации, касающихся использования Сайта, оказания услуг;</li><li style="color: #ffffff !important;">Обработка заявок и запросов Пользователя;</li><li style="color: #ffffff !important;">Улучшение качества работы Сайта, удобства его использования;</li><li style="color: #ffffff !important;">Проведение статистических и иных исследований на основе обезличенных данных;</li><li style="color: #ffffff !important;">Защита прав и законных интересов Оператора и третьих лиц.</li></ul>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">4. Условия обработки персональной информации</h4>
+                <p style="color: #ffffff !important;">4.1. Обработка персональной информации Пользователя осуществляется с использованием средств автоматизации, а также без использования таких средств, любым законным способом. Обработка производится бессрочно до момента отзыва Пользователем согласия на обработку персональных данных.</p>
+                <p style="color: #ffffff !important;">4.2. Оператор не передает персональную информацию Пользователя третьим лицам без его согласия, за исключением случаев, когда это необходимо для исполнения договора (например, для передачи заказа курьерской службе, платежным системам), либо в случаях, установленных законодательством РФ.</p>
+                <p style="color: #ffffff !important;">4.3. Оператор принимает все необходимые правовые, организационные и технические меры для защиты персональной информации Пользователя от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий третьих лиц.</p>
+                <p style="color: #ffffff !important;">4.4. При утрате или разглашении персональных данных Оператор уведомляет Пользователя и уполномоченный орган по защите прав субъектов персональных данных в сроки, установленные законодательством РФ.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">5. Права и обязанности Пользователей</h4>
+                <p style="color: #ffffff !important;">5.1. Пользователь вправе:</p>
+                <ul style="list-style-type: disc; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Получать информацию, касающуюся обработки его персональных данных;</li><li style="color: #ffffff !important;">Требовать уточнения своих персональных данных, их блокирования или уничтожения в случае, если персональные данные являются неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной цели обработки;</li><li style="color: #ffffff !important;">Отозвать согласие на обработку персональных данных путем направления письменного заявления Оператору;</li><li style="color: #ffffff !important;">Обжаловать действия или бездействие Оператора в уполномоченный орган по защите прав субъектов персональных данных или в судебном порядке.</li></ul>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">6. Меры по защите персональных данных</h4>
+                <p style="color: #ffffff !important;">6.1. Оператор назначает ответственного за организацию обработки персональных данных.</p>
+                <p style="color: #ffffff !important;">6.2. Оператор применяет следующие меры защиты персональных данных: назначение лиц, ответственных за обработку персональных данных; ограничение и разграничение доступа к персональным данным; применение антивирусных средств; использование межсетевых экранов; резервирование данных; контроль за принимаемыми мерами.</p>
+                <p style="color: #ffffff !important;">6.3. Обработка персональных данных на бумажных носителях осуществляется в специально выделенных для этого помещениях, с обеспечением сохранности документов.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">7. Заключительные положения</h4>
+                <p style="color: #ffffff !important;">7.1. Настоящая Политика действует бессрочно до замены ее новой редакцией.</p>
+                <p style="color: #ffffff !important;">7.2. Все споры, возникающие из отношений, регулируемых настоящей Политикой, разрешаются путем переговоров. При недостижении согласия спор подлежит рассмотрению в суде по месту регистрации Оператора в соответствии с законодательством РФ.</p>
+                <p style="color: #ffffff !important;">7.3. Лица, виновные в нарушении правил обработки персональных данных, несут гражданскую, административную, уголовную и дисциплинарную ответственность в соответствии с законодательством РФ.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">8. Контактная информация</h4>
+                <p style="color: #ffffff !important;">По всем вопросам, связанным с обработкой персональных данных, Пользователь может обратиться:</p>
+                <p style="color: #ffffff !important;">Email: muravskiy.s.a@yandex.ru</p>
+                <p style="color: #ffffff !important;">Телефон: 8-913-860-06-60</p>
+                <p style="color: #ffffff !important;">Адрес для корреспонденции: г. Томск, ул. Алтайская, д. 10</p>
+                <p style="color: #ffffff !important;">ИП Шпигрев В.О., ОГРНИП 325700000003162</p>
+                <p style="color: #ffffff !important;">Лицензия: 70.ТС.08.003.Л.000011.03.25 (ЕРУЛ № Л064-00111-70/01987002)</p>
+                <p style="margin-top: 30px; font-style: italic; color: #ffffff !important;">Дата последнего обновления: 26 февраля 2026 г.</p>
+            </div>
+            <div style="margin-top: 30px; text-align: center;"><button class="btn btn--primary" onclick="document.getElementById('privacyPolicyModal').classList.remove('active'); document.body.style.overflow = '';">Закрыть</button></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Клиентского соглашения -->
+    <div class="modal" id="clientAgreementModal">
+        <div class="modal__content" style="max-width: 800px; max-height: 80vh; overflow-y: auto; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: #ffffff !important;">
+            <button class="modal__close" aria-label="Закрыть" style="color: #ffffff;">&times;</button>
+            <h3 class="modal__title" style="color: #ff9800; margin-bottom: 25px;" data-dez-agreement-title="client">Клиентское соглашение</h3>
+            <div style="text-align: left; color: #ffffff !important;" data-dez-agreement-content="client">
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">1. Предмет соглашения</h4>
+                <p style="color: #ffffff !important;">1.1. Индивидуальный предприниматель Шпигрев В.О. (ОГРНИП 325700000003162) (далее — Исполнитель) обязуется по заданию Заказчика оказать услуги по дезинсекции, дератизации, дезинфекции и иные услуги, указанные на Сайте https://dez-one.ru (далее — Услуги), а Заказчик обязуется принять и оплатить оказанные Услуги.</p>
+                <p style="color: #ffffff !important;">1.2. Настоящее Клиентское соглашение является публичной офертой. Акцептом признается оформление Заказчиком заявки на Сайте или по телефону, либо оплата Услуг, либо совершение иных конклюдентных действий, свидетельствующих о согласии с условиями настоящего Соглашения.</p>
+                <p style="color: #ffffff !important;">1.3. Факт ознакомления с Памяткой клиенту и настоящим Соглашением подтверждается отметкой в соответствующем поле формы заявки на Сайте.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">2. Порядок оказания услуг</h4>
+                <p style="color: #ffffff !important;">2.1. Заказчик оставляет заявку на Сайте, по телефону или через мессенджеры. Менеджер Исполнителя связывается с Заказчиком для согласования даты, времени и адреса оказания Услуг, уточнения стоимости.</p>
+                <p style="color: #ffffff !important;">2.2. Исполнитель гарантирует прибытие специалиста на объект в согласованное время. В случае задержки более чем на 30 минут Исполнитель уведомляет Заказчика.</p>
+                <p style="color: #ffffff !important;">2.3. До начала оказания Услуг специалист Исполнителя проводит осмотр объекта, согласовывает с Заказчиком план обработки, объем работ и окончательную стоимость.</p>
+                <p style="color: #ffffff !important;">2.4. Исполнитель использует сертифицированные и безопасные препараты и оборудование. По требованию Заказчика Исполнитель предоставляет копии сертификатов и деклараций соответствия.</p>
+                <p style="color: #ffffff !important;">2.5. После оказания Услуг составляется Акт выполненных работ (в простой письменной форме или в форме электронного документа). Подписание Акта Заказчиком подтверждает, что Услуги оказаны надлежащим образом, в полном объеме, претензий к качеству Заказчик не имеет.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">3. Обязанности Заказчика</h4>
+                <p style="color: #ffffff !important;">3.1. Заказчик обязуется:</p>
+                <ul style="list-style-type: decimal; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Обеспечить доступ специалиста на объект в согласованное время;</li><li style="color: #ffffff !important;">Выполнить подготовительные мероприятия, указанные в Памятке клиенту;</li><li style="color: #ffffff !important;">Удалить из помещения людей (особенно детей, беременных женщин, лиц с аллергией) и домашних животных на время обработки и в течение экспозиции;</li><li style="color: #ffffff !important;">Не находиться в помещении во время обработки без специальных средств защиты;</li><li style="color: #ffffff !important;">Соблюдать рекомендации специалиста по завершении обработки (проветривание, уборка);</li><li style="color: #ffffff !important;">Своевременно оплатить услуги.</li></ul>
+                <p style="color: #ffffff !important;">3.2. Невыполнение Заказчиком обязанностей, указанных в п. 3.1., освобождает Исполнителя от гарантийных обязательств.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">4. Стоимость и порядок расчетов</h4>
+                <p style="color: #ffffff !important;">4.1. Стоимость Услуг определяется на основании цен, указанных на Сайте, и фиксируется в заявке. Окончательная стоимость может быть скорректирована после осмотра объекта специалистом.</p>
+                <p style="color: #ffffff !important;">4.2. Оплата производится в российских рублях наличными средствами специалисту после оказания Услуг, либо безналичным переводом на расчетный счет Исполнителя.</p>
+                <p style="color: #ffffff !important;">4.3. При безналичной оплате моментом оплаты считается поступление денежных средств на расчетный счет Исполнителя.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">5. Гарантийные обязательства</h4>
+                <p style="color: #ffffff !important;">5.1. Исполнитель предоставляет гарантию на оказанные услуги:</p>
+                <ul style="list-style-type: disc; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Дезинсекция — 1 (один) год;</li><li style="color: #ffffff !important;">Дератизация — 1 (один) год;</li><li style="color: #ffffff !important;">Дезинфекция — от 1 до 6 месяцев в зависимости от типа обработки;</li><li style="color: #ffffff !important;">Акарицидная обработка — 1 (один) сезон;</li><li style="color: #ffffff !important;">Демиркуризация — без гарантийных обязательств (разовый акт).</li></ul>
+                <p style="color: #ffffff !important;">5.2. Гарантия действует при условии соблюдения Заказчиком всех рекомендаций Исполнителя по подготовке и уборке после обработки, а также при отсутствии повторного заражения извне.</p>
+                <p style="color: #ffffff !important;">5.3. Для реализации гарантийного обслуживания Заказчик обязан предоставить доступ специалисту на объект в течение 3 (трех) рабочих дней с момента обнаружения вредителей.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">6. Ответственность сторон</h4>
+                <p style="color: #ffffff !important;">6.1. Исполнитель несет ответственность за качество оказанных услуг в соответствии с законодательством РФ и настоящим Соглашением.</p>
+                <p style="color: #ffffff !important;">6.2. Исполнитель не несет ответственности за порчу имущества Заказчика, если это имущество не было подготовлено к обработке в соответствии с Памяткой клиенту.</p>
+                <p style="color: #ffffff !important;">6.3. Заказчик несет ответственность за достоверность предоставленной информации (площадь объекта, степень заражения, наличие детей/животных).</p>
+                <p style="color: #ffffff !important;">6.4. Заказчик несет полную ответственность за жизнь и здоровье лиц, оставленных в помещении во время обработки в нарушение требований безопасности.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">7. Порядок разрешения споров</h4>
+                <p style="color: #ffffff !important;">7.1. Все споры разрешаются путем переговоров с обязательным соблюдением претензионного порядка. Срок ответа на претензию — 10 (десять) рабочих дней.</p>
+                <p style="color: #ffffff !important;">7.2. В случае невозможности разрешения спора путем переговоров, спор подлежит рассмотрению в суде по месту регистрации Исполнителя в соответствии с законодательством РФ.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">8. Заключительные положения</h4>
+                <p style="color: #ffffff !important;">8.1. Настоящее Соглашение вступает в силу с момента Акцепта Заказчиком и действует до полного исполнения сторонами своих обязательств.</p>
+                <p style="color: #ffffff !important;">8.2. Во всем, что не урегулировано настоящим Соглашением, стороны руководствуются законодательством РФ.</p>
+                <p style="margin-top: 30px; font-style: italic; color: #ffffff !important;">Дата последнего обновления: 26 февраля 2026 г.</p>
+            </div>
+            <div style="margin-top: 30px; text-align: center;"><button class="btn btn--primary" onclick="document.getElementById('clientAgreementModal').classList.remove('active'); document.body.style.overflow = '';">Закрыть</button></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Пользовательского соглашения -->
+    <div class="modal" id="userAgreementModal">
+        <div class="modal__content" style="max-width: 800px; max-height: 80vh; overflow-y: auto; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: #ffffff !important;">
+            <button class="modal__close" aria-label="Закрыть" style="color: #ffffff;">&times;</button>
+            <h3 class="modal__title" style="color: #ff9800; margin-bottom: 25px;" data-dez-agreement-title="user">Пользовательское соглашение</h3>
+            <div style="text-align: left; color: #ffffff !important;" data-dez-agreement-content="user">
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">1. Общие положения</h4>
+                <p style="color: #ffffff !important;">1.1. Настоящее Пользовательское соглашение (далее — Соглашение) регулирует отношения между Индивидуальным предпринимателем Шпигревым В.О. (ОГРНИП 325700000003162) (далее — Оператор, Администрация) и любым лицом (далее — Пользователь), использующим Сайт https://dez-one.ru (далее — Сайт).</p>
+                <p style="color: #ffffff !important;">1.2. Настоящее Соглашение является официальным документом и публикуется в открытом доступе на Сайте. Использование Сайта означает полное и безоговорочное согласие Пользователя с условиями настоящего Соглашения.</p>
+                <p style="color: #ffffff !important;">1.3. Администрация вправе в любое время в одностороннем порядке изменять условия настоящего Соглашения. Изменения вступают в силу с момента публикации новой редакции Соглашения на Сайте.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">2. Предмет соглашения</h4>
+                <p style="color: #ffffff !important;">2.1. Предметом настоящего Соглашения является предоставление Пользователю доступа к информации, калькуляторам, формам обратной связи и иному функционалу Сайта.</p>
+                <p style="color: #ffffff !important;">2.2. Сайт предоставляет Пользователю следующие виды сервисов: просмотр информации об услугах и ценах; расчет предварительной стоимости услуг через онлайн-калькулятор; направление заявок на обратный звонок, консультацию, заказ услуг; просмотр статей и памяток; оставление отзывов.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">3. Права и обязанности сторон</h4>
+                <p style="color: #ffffff !important;">3.1. Пользователь обязуется:</p>
+                <ul style="list-style-type: decimal; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Не совершать действий, направленных на нарушение нормальной работы Сайта;</li><li style="color: #ffffff !important;">Не предпринимать попыток несанкционированного доступа к управлению Сайтом;</li><li style="color: #ffffff !important;">Не распространять спам, вирусы, вредоносное программное обеспечение;</li><li style="color: #ffffff !important;">Предоставлять достоверную информацию при заполнении форм обратной связи;</li><li style="color: #ffffff !important;">Соблюдать права интеллектуальной собственности Администрации.</li></ul>
+                <p style="color: #ffffff !important;">3.2. Пользователь имеет право:</p>
+                <ul style="list-style-type: decimal; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Использовать функционал Сайта в личных некоммерческих целях;</li><li style="color: #ffffff !important;">Направлять заявки и запросы через формы Сайта;</li><li style="color: #ffffff !important;">Получать информацию о деятельности Исполнителя.</li></ul>
+                <p style="color: #ffffff !important;">3.3. Администрация имеет право:</p>
+                <ul style="list-style-type: decimal; padding-left: 30px; margin-bottom: 15px; color: #ffffff !important;"><li style="color: #ffffff !important;">Изменять условия настоящего Соглашения в одностороннем порядке;</li><li style="color: #ffffff !important;">Ограничивать доступ к Сайту в случае нарушения Пользователем условий Соглашения;</li><li style="color: #ffffff !important;">Проводить профилактические работы с временным приостановлением работы Сайта.</li></ul>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">4. Интеллектуальная собственность</h4>
+                <p style="color: #ffffff !important;">4.1. Все объекты, размещенные на Сайте (логотип, дизайн, тексты, графические изображения, иллюстрации, фото- и видеоматериалы), являются объектами интеллектуальной собственности Администрации.</p>
+                <p style="color: #ffffff !important;">4.2. Любое использование объектов интеллектуальной собственности без письменного разрешения правообладателя является нарушением и преследуется по закону.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">5. Ответственность и ограничения</h4>
+                <p style="color: #ffffff !important;">5.1. Сайт предоставляется на условиях «как есть». Администрация не гарантирует, что Сайт не содержит ошибок, работает непрерывно и безотказно.</p>
+                <p style="color: #ffffff !important;">5.2. Администрация не несет ответственности за возможные убытки, связанные с использованием или невозможностью использования Сайта.</p>
+                <p style="color: #ffffff !important;">5.3. Администрация не несет ответственности за содержание и достоверность информации, предоставленной Пользователем.</p>
+                <p style="color: #ffffff !important;">5.4. Калькулятор на Сайте является предварительным и не гарантирует точную стоимость услуг. Окончательная стоимость определяется специалистом после осмотра объекта.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">6. Ссылки на сторонние ресурсы</h4>
+                <p style="color: #ffffff !important;">6.1. На Сайте могут содержаться ссылки на сторонние интернет-ресурсы. Администрация не несет ответственности за информацию, размещенную на таких ресурсах, и не гарантирует их безопасность.</p>
+                <h4 style="color: #ff9800; margin-top: 20px; margin-bottom: 10px;">7. Заключительные положения</h4>
+                <p style="color: #ffffff !important;">7.1. В случае признания судом какого-либо положения настоящего Соглашения недействительным, остальные положения продолжают действовать.</p>
+                <p style="color: #ffffff !important;">7.2. Бездействие Администрации в случае нарушения Пользователем положений Соглашения не лишает Администрацию права предпринять соответствующие действия в защиту своих интересов впоследствии.</p>
+                <p style="margin-top: 30px; font-style: italic; color: #ffffff !important;">Дата последнего обновления: 26 февраля 2026 г.</p>
+            </div>
+            <div style="margin-top: 30px; text-align: center;"><button class="btn btn--primary" onclick="document.getElementById('userAgreementModal').classList.remove('active'); document.body.style.overflow = '';">Закрыть</button></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно согласия на обработку персональных данных -->
+    <div class="modal" id="consentModal">
+        <div class="modal__content" style="max-width: 800px; max-height: 80vh; overflow-y: auto; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: #ffffff !important;">
+            <button class="modal__close" aria-label="Закрыть" style="color: #ffffff;">&times;</button>
+            <h3 class="modal__title" style="color: #ff9800; margin-bottom: 25px;">Согласие на обработку персональных данных</h3>
+            <div style="text-align: left; color: #ffffff !important;">
+                <p style="color: #ffffff !important;">Настоящим я, действуя своей волей и в своем интересе, при использовании сайта https://dez-one.ru (далее — Сайт) и заполнении форм обратной связи, даю свое согласие Индивидуальному предпринимателю Шпигреву В.О. (ОГРНИП 325700000003162) на обработку моих персональных данных, а именно: фамилии, имени, отчества, номера контактного телефона, адреса электронной почты, адреса местонахождения объекта.</p>
+                <p style="color: #ffffff !important;">Обработка персональных данных включает в себя сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (предоставление доступа), обезличивание, блокирование, удаление, уничтожение персональных данных.</p>
+                <p style="color: #ffffff !important;">Цель обработки персональных данных: идентификация Пользователя в рамках договоров оказания услуг; связь с Пользователем, включая направление уведомлений, запросов и информации, касающихся использования Сайта, оказания услуг; обработка заявок и запросов Пользователя; улучшение качества работы Сайта; защита прав и законных интересов Оператора и третьих лиц.</p>
+                <p style="color: #ffffff !important;">Настоящее согласие действует бессрочно до момента его отзыва путем направления письменного заявления на адрес электронной почты muravskiy.s.a@yandex.ru или почтовый адрес: г. Томск, ул. Алтайская, д. 10.</p>
+                <p style="color: #ffffff !important;">Я ознакомлен(а) с Политикой конфиденциальности и Пользовательским соглашением, понимаю свои права и обязанности, связанные с обработкой персональных данных.</p>
+                <p style="margin-top: 30px; font-style: italic; color: #ffffff !important;">Дата последнего обновления: 26 февраля 2026 г.</p>
+            </div>
+            <div style="margin-top: 30px; text-align: center;"><button class="btn btn--primary" onclick="document.getElementById('consentModal').classList.remove('active'); document.body.style.overflow = '';">Закрыть</button></div>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript -->
+    <script src="js/main.js"></script>
+    <script>window.DEZ_PROXY_URL = "https://dezone-leads.prokudinvladislav9.workers.dev/lead";</script>
+    <script src="js/forms.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/web-background.js"></script>
+    <script src="js/slideshow.js"></script>
+    <script src="js/admin-loader.js?v=2.0"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const privacyPolicyLink = document.getElementById('privacyPolicyLink');
+            if (privacyPolicyLink) {
+                privacyPolicyLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const privacyModal = document.getElementById('privacyPolicyModal');
+                    if (privacyModal) {
+                        if (window.DEZ && window.DEZ.closeAllModals) window.DEZ.closeAllModals();
+                        privacyModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+            const clientAgreementLink = document.getElementById('clientAgreementLink');
+            if (clientAgreementLink) {
+                clientAgreementLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const clientModal = document.getElementById('clientAgreementModal');
+                    if (clientModal) {
+                        if (window.DEZ && window.DEZ.closeAllModals) window.DEZ.closeAllModals();
+                        clientModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+            const userAgreementLink = document.getElementById('userAgreementLink');
+            if (userAgreementLink) {
+                userAgreementLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const userModal = document.getElementById('userAgreementModal');
+                    if (userModal) {
+                        if (window.DEZ && window.DEZ.closeAllModals) window.DEZ.closeAllModals();
+                        userModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+            const consentLinks = document.querySelectorAll('[data-modal="consent"]');
+            consentLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const consentModal = document.getElementById('consentModal');
+                    if (consentModal) {
+                        if (window.DEZ && window.DEZ.closeAllModals) window.DEZ.closeAllModals();
+                        consentModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

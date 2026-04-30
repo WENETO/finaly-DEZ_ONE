@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108186352', 'ym');
+
+    ym(108186352, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108186352" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: ; connect-src 'self' https://api.jsonbin.io https://mc.yandex.ru wss://mc.yandex.ru https://*.workers.dev; frame-src https://mc.yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Админка DEZ-ONE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .login-container h2 {
+            color: #0c8346;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+        
+        .login-container h2 span {
+            color: #ff9800;
+        }
+        
+        .login-container input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .login-container input:focus {
+            border-color: #0c8346;
+            outline: none;
+        }
+        
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #0c8346 0%, #0a6c3a 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(12,131,70,0.3);
+        }
+        
+        .error-message {
+            color: #dc3545;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .admin-panel {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #0c8346;
+            font-size: 28px;
+        }
+        
+        .header h1 span {
+            color: #ff9800;
+        }
+        
+        .header button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .header button:hover {
+            background: #c82333;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tab:hover {
+            background: #f0f0f0;
+        }
+        
+        .tab.active {
+            background: #0c8346;
+            color: white;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section h2 {
+            color: #0c8346;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9800;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #0c8346;
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 400px;
+            font-family: monospace;
+            line-height: 1.5;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .save-btn {
+            background: linear-gradient(135deg, #0c8346 0%, #0a6c3a 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+            display: block;
+            width: 100%;
+        }
+        
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(12,131,70,0.3);
+        }
+        
+        .save-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 600;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .notification.success {
+            background: #0c8346;
+        }
+        
+        .notification.error {
+            background: #dc3545;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            display: none;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #0c8346;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+        }
+        
+        .html-preview {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .html-preview p {
+            color: #ffffff;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Форма входа -->
+    <div class="login-container" id="loginForm">
+        <h2>DEZ-ONE <span>Админка</span></h2>
+        <input type="password" id="adminPassword" placeholder="Введите пароль">
+        <button onclick="checkPassword()">Войти</button>
+        <div class="error-message" id="loginError"></div>
+    </div>
+
+    <!-- Админ-панель -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="header">
+            <h1>DEZ-ONE <span>Администрирование</span></h1>
+            <button onclick="logout()">Выйти</button>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="contacts">Контакты</div>
+            <div class="tab" data-tab="privacy">Политика конфиденциальности</div>
+            <div class="tab" data-tab="client">Клиентское соглашение</div>
+            <div class="tab" data-tab="user">Пользовательское соглашение</div>
+        </div>
+
+        <!-- Вкладка Контакты -->
+        <div class="section active" id="contacts">
+            <h2>Контактная информация</h2>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Телефон (для звонков, только цифры)</label>
+                    <input type="text" id="phone" placeholder="89138572271">
+                </div>
+                <div class="form-group">
+                    <label>Телефон (отображение, в формате 8-913-857-22-71)</label>
+                    <input type="text" id="phone_display" placeholder="8-913-857-22-71">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="prokudinvladislav9@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Адрес</label>
+                    <input type="text" id="address" placeholder="г. Алтайская, ул. Алтайская, д. 10">
+                </div>
+                <div class="form-group">
+                    <label>Часы работы</label>
+                    <input type="text" id="work_hours" placeholder="Круглосуточно">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp (полная ссылка)</label>
+                    <input type="text" id="whatsapp" placeholder="https://wa.me/79138572271">
+                </div>
+                <div class="form-group">
+                    <label>Telegram (полная ссылка)</label>
+                    <input type="text" id="telegram" placeholder="https://t.me/dezon_pro">
+                </div>
+                <div class="form-group">
+                    <label>MAX (полная ссылка)</label>
+                    <input type="text" id="max" placeholder="https://max.ru/profile/79138572271">
+                </div>
+                <div class="form-group">
+                    <label>VK</label>
+                    <input type="text" id="vk" placeholder="https://vk.com/dez_one">
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка Политика конфиденциальности -->
+        <div class="section" id="privacy">
+            <h2>Политика конфиденциальности</h2>
+            <div class="form-group">
+                <label>Заголовок</label>
+                <input type="text" id="privacy_title" value="Политика конфиденциальности">
+            </div>
+            <div class="form-group">
+                <label>Содержание (HTML)</label>
+                <textarea id="privacy_content" rows="20"></textarea>
+            </div>
+            <div class="html-preview" id="privacy_preview">
+                Предпросмотр будет здесь
+            </div>
+        </div>
+
+        <!-- Вкладка Клиентское соглашение -->
+        <div class="section" id="client">
+            <h2>Клиентское соглашение</h2>
+            <div class="form-group">
+                <label>Заголовок</label>
+                <input type="text" id="client_title" value="Клиентское соглашение">
+            </div>
+            <div class="form-group">
+                <label>Содержание (HTML)</label>
+                <textarea id="client_content" rows="20"></textarea>
+            </div>
+            <div class="html-preview" id="client_preview">
+                Предпросмотр будет здесь
+            </div>
+        </div>
+
+        <!-- Вкладка Пользовательское соглашение -->
+        <div class="section" id="user">
+            <h2>Пользовательское соглашение</h2>
+            <div class="form-group">
+                <label>Заголовок</label>
+                <input type="text" id="user_title" value="Пользовательское соглашение">
+            </div>
+            <div class="form-group">
+                <label>Содержание (HTML)</label>
+                <textarea id="user_content" rows="20"></textarea>
+            </div>
+            <div class="html-preview" id="user_preview">
+                Предпросмотр будет здесь
+            </div>
+        </div>
+
+        <button class="save-btn" id="saveBtn" onclick="saveAll()">
+            <i class="fas fa-save"></i> Сохранить все изменения
+        </button>
+    </div>
+
+    <script>
+        // ===== НАСТРОЙКИ JSONBIN =====
+        const JSONBIN_CONFIG = {
+            apiKey: '$2a$10$h8DblZvcx7MsVZnnr7IgyeF.UvrOIcN8Hf3Qm8QKYSWkaPCjG5nue',
+            binId: '69a719b5d0ea881f40eb3c20'
+        };
+        
+        const ADMIN_PASSWORD = 'admin123';
+        
+        // Показать/скрыть загрузку
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'flex' : 'none';
+        }
+        
+        // Показать уведомление
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Обновление предпросмотра
+        function updatePreview() {
+            const privacyContent = document.getElementById('privacy_content').value;
+            const clientContent = document.getElementById('client_content').value;
+            const userContent = document.getElementById('user_content').value;
+            
+            document.getElementById('privacy_preview').innerHTML = privacyContent.substring(0, 200) + (privacyContent.length > 200 ? '...' : '');
+            document.getElementById('client_preview').innerHTML = clientContent.substring(0, 200) + (clientContent.length > 200 ? '...' : '');
+            document.getElementById('user_preview').innerHTML = userContent.substring(0, 200) + (userContent.length > 200 ? '...' : '');
+        }
+        
+        // Проверка пароля
+        function checkPassword() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                loadData();
+                document.getElementById('loginError').textContent = '';
+            } else {
+                document.getElementById('loginError').textContent = 'Неверный пароль!';
+            }
+        }
+        
+        // Выход
+        function logout() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('adminPassword').value = '';
+        }
+        
+        // Переключение вкладок
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Загрузка данных из JSONBin
+        async function loadData() {
+            showLoading(true);
+            try {
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_CONFIG.binId}/latest`, {
+                    headers: {
+                        'X-Master-Key': JSONBIN_CONFIG.apiKey
+                    }
+                });
+                
+                if (!response.ok) throw new Error('Ошибка загрузки');
+                
+                const result = await response.json();
+                const data = result.record;
+                
+                // Заполняем контакты
+                document.getElementById('phone').value = data.contacts?.phone || '89138572271';
+                document.getElementById('phone_display').value = data.contacts?.phone_display || '8-913-857-22-71';
+                document.getElementById('email').value = data.contacts?.email || 'prokudinvladislav9@gmail.com';
+                document.getElementById('address').value = data.contacts?.address || 'г. Алтайская, ул. Алтайская, д. 10';
+                document.getElementById('work_hours').value = data.contacts?.work_hours || 'Круглосуточно';
+                document.getElementById('whatsapp').value = data.contacts?.whatsapp || 'https://wa.me/79138572271';
+                document.getElementById('telegram').value = data.contacts?.telegram || 'https://t.me/dezon_pro';
+                document.getElementById('max').value = data.contacts?.max || 'https://max.ru/profile/79138572271';
+                document.getElementById('vk').value = data.contacts?.vk || '';
+                
+                // Заполняем соглашения
+                document.getElementById('privacy_title').value = data.agreements?.privacy_policy?.title || 'Политика конфиденциальности';
+                document.getElementById('privacy_content').value = data.agreements?.privacy_policy?.content || '';
+                
+                document.getElementById('client_title').value = data.agreements?.client_agreement?.title || 'Клиентское соглашение';
+                document.getElementById('client_content').value = data.agreements?.client_agreement?.content || '';
+                
+                document.getElementById('user_title').value = data.agreements?.user_agreement?.title || 'Пользовательское соглашение';
+                document.getElementById('user_content').value = data.agreements?.user_agreement?.content || '';
+                
+                updatePreview();
+                
+                showNotification('Данные загружены', 'success');
+            } catch (error) {
+                console.error('Ошибка загрузки:', error);
+                showNotification('Ошибка загрузки данных', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // Сбор данных из формы
+        function collectFormData() {
+            return {
+                contacts: {
+                    phone: document.getElementById('phone').value,
+                    phone_display: document.getElementById('phone_display').value,
+                    email: document.getElementById('email').value,
+                    address: document.getElementById('address').value,
+                    work_hours: document.getElementById('work_hours').value,
+                    whatsapp: document.getElementById('whatsapp').value,
+                    telegram: document.getElementById('telegram').value,
+                    max: document.getElementById('max').value,
+                    vk: document.getElementById('vk').value
+                },
+                agreements: {
+                    privacy_policy: {
+                        title: document.getElementById('privacy_title').value,
+                        content: document.getElementById('privacy_content').value
+                    },
+                    client_agreement: {
+                        title: document.getElementById('client_title').value,
+                        content: document.getElementById('client_content').value
+                    },
+                    user_agreement: {
+                        title: document.getElementById('user_title').value,
+                        content: document.getElementById('user_content').value
+                    }
+                },
+                last_updated: new Date().toLocaleString('ru-RU')
+            };
+        }
+        
+        // Сохранение всех данных
+        async function saveAll() {
+            const btn = document.getElementById('saveBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Сохранение...';
+            
+            showLoading(true);
+            
+            try {
+                const newData = collectFormData();
+                
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_CONFIG.binId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': JSONBIN_CONFIG.apiKey
+                    },
+                    body: JSON.stringify(newData)
+                });
+                
+                if (!response.ok) throw new Error('Ошибка сохранения');
+                
+                // Обновляем предпросмотр
+                updatePreview();
+                
+                // Сохраняем в localStorage для обновления на сайте
+                localStorage.setItem('dezone_last_update', Date.now().toString());
+                
+                showNotification('Все изменения успешно сохранены!', 'success');
+            } catch (error) {
+                console.error('Ошибка сохранения:', error);
+                showNotification('Ошибка при сохранении', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-save"></i> Сохранить все изменения';
+                showLoading(false);
+            }
+        }
+        
+        // Автоматическое обновление предпросмотра при изменении текста
+        document.getElementById('privacy_content').addEventListener('input', updatePreview);
+        document.getElementById('client_content').addEventListener('input', updatePreview);
+        document.getElementById('user_content').addEventListener('input', updatePreview);
+    </script>
+</body>
+
+</html>
