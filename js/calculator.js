@@ -71,23 +71,67 @@ function initCalculator() {
     const propertyTypeSelect = document.getElementById('propertyType');
     const areaRange = document.getElementById('area');
     const areaValue = document.getElementById('areaValue');
+    const areaInput = document.getElementById('areaInput');
     const totalPriceElement = document.getElementById('totalPrice');
     const checkboxes = document.querySelectorAll('input[name="options"]');
-    
+
     if (!calculatorForm) {
         console.log('Калькулятор не найден на странице');
         return;
     }
-    
+
     console.log('Калькулятор инициализирован');
-    
-    // Обновление значения площади
-    if (areaRange && areaValue) {
+
+    // Двусторонняя синхронизация ползунка и поля ручного ввода
+    const AREA_MIN = areaRange ? parseInt(areaRange.min, 10) || 10 : 10;
+    const AREA_MAX = areaRange ? parseInt(areaRange.max, 10) || 5000 : 5000;
+
+    function clampArea(v) {
+        let n = parseInt(v, 10);
+        if (isNaN(n)) n = AREA_MIN;
+        if (n < AREA_MIN) n = AREA_MIN;
+        if (n > AREA_MAX) n = AREA_MAX;
+        return n;
+    }
+
+    function setArea(value, source) {
+        const n = clampArea(value);
+        if (areaRange) areaRange.value = n;
+        // Поле ввода всегда нормализуем: если пользователь ввёл вне диапазона,
+        // отображаемое значение должно стать корректным после blur / change.
+        if (areaInput && String(areaInput.value) !== String(n)) areaInput.value = n;
+        if (areaValue) areaValue.textContent = 'м²';
+        calculatePrice();
+    }
+
+    if (areaRange) {
         areaRange.addEventListener('input', function() {
-            areaValue.textContent = this.value + ' м²';
-            calculatePrice();
+            setArea(this.value, 'range');
         });
     }
+
+    if (areaInput) {
+        // Пока пользователь печатает — обновляем только если значение валидное и в диапазоне
+        areaInput.addEventListener('input', function() {
+            const raw = this.value;
+            if (raw === '') return; // не дёргаем, пока поле пустое
+            const n = parseInt(raw, 10);
+            if (!isNaN(n) && n >= AREA_MIN && n <= AREA_MAX) {
+                if (areaRange) areaRange.value = n;
+                calculatePrice();
+            }
+        });
+        // На blur / Enter — нормализуем в допустимый диапазон
+        areaInput.addEventListener('change', function() {
+            setArea(this.value, 'input');
+        });
+        areaInput.addEventListener('blur', function() {
+            setArea(this.value, 'input');
+        });
+    }
+
+    // Стартовое отображение
+    if (areaValue) areaValue.textContent = 'м²';
     
     // Пересчет при любом изменении
     if (serviceTypeSelect) {

@@ -296,9 +296,12 @@
                             <label for="area"><i class="fas fa-ruler-combined"></i> Площадь (м²)</label>
                             <div class="range-container">
                                 <input type="range" id="area" name="area" min="10" max="5000" value="50" step="10" class="range-slider">
-                                <div class="range-value">
-                                    <span id="areaValue">50 м²</span>
-                                    <span class="range-hint">(двигайте ползунок)</span>
+                                <div class="range-value" style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                                    <div style="display:flex; align-items:center; gap:8px;">
+                                        <input type="number" id="areaInput" min="10" max="5000" step="1" value="50" aria-label="Введите площадь в м²" style="width:110px; padding:8px 10px; border:2px solid rgba(255,255,255,0.3); border-radius:8px; background:rgba(255,255,255,0.95); color:#000; font-size:1rem; font-weight:600; text-align:center;">
+                                        <span id="areaValue" style="font-weight:700;">м²</span>
+                                    </div>
+                                    <span class="range-hint">(введите вручную или двигайте ползунок)</span>
                                 </div>
                             </div>
                         </div>
