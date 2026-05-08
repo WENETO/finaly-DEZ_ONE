@@ -208,7 +208,7 @@ function initPrivacyPolicyModal() {
                         
                         <h4 style="color: var(--primary); margin-top: 20px; margin-bottom: 10px;">7. Контактная информация</h4>
                         <p>По всем вопросам, связанным с обработкой персональных данных, пользователь может обратиться:</p>
-                        <p>Email: prokudinvladislav9@gmail.com</p>
+                        <p>Email: main@dez-one.ru</p>
                         <p>Телефон: 8-913-857-22-71</p>
                         <p>ИП Иванов И.И., ОГРНИП 123456789012345</p>
                         

@@ -94,7 +94,7 @@ function updateContacts(contacts) {
 
     // ===== 4. EMAIL =====
     document.querySelectorAll('[data-dez-email]').forEach(el => {
-        const emailValue = contacts.email || 'prokudinvladislav9@gmail.com';
+        const emailValue = contacts.email || 'main@dez-one.ru';
         updateCount++;
         
         if (el.tagName === 'A' || el.tagName === 'a') {
