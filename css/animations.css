@@ -58,6 +58,31 @@
     z-index: 3;
 }
 
+/* Контейнер бренда с домиком над логотипом */
+.preloader-brand {
+    position: relative;
+    display: inline-block;
+}
+
+/* Домик над буквой D, со сдвигом влево от логотипа */
+.preloader-house {
+    position: absolute;
+    width: 140px;
+    height: auto;
+    bottom: calc(100% - 20px);
+    right: calc(100% - 45px);
+    pointer-events: none;
+    z-index: 2;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+    animation: housePop 1.2s ease-out 0.2s both;
+}
+
+@keyframes housePop {
+    0%   { opacity: 0; transform: translateY(10px) scale(0.85); }
+    60%  { opacity: 1; transform: translateY(-2px) scale(1.04); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* Анимированный логотип DEZON */
 .preloader-logo {
     font-size: 4rem;
@@ -881,11 +906,17 @@
         font-size: 3rem;
         height: 100px;
     }
-    
+
+    .preloader-house {
+        width: 108px;
+        right: calc(100% - 32px);
+        bottom: calc(100% - 14px);
+    }
+
     .preloader-slogan {
         font-size: 1.2rem;
     }
-    
+
     .preloader-text {
         font-size: 1rem;
     }
